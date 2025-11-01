@@ -21,14 +21,10 @@ debug.log
 *.lib
 *.so
 *.ckpt
-*.h5
 *.tflite
 *.onnx
 
-# ML Models (track separately if needed)
-*.joblib
-*.pkl
-*.safetensors
+
 
 # Node
 node_modules/
