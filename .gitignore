@@ -1,0 +1,43 @@
+@"
+# Virtual environments
+venv/
+*/venv*/
+**/venv*/
+backend/venv311/
+venv311/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Logs
+*.log
+debug.log
+
+# Large ML binaries
+*.dll
+*.pyd
+*.lib
+*.so
+*.ckpt
+*.h5
+*.tflite
+*.onnx
+
+# ML Models (track separately if needed)
+*.joblib
+*.pkl
+*.safetensors
+
+# Node
+node_modules/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+"@ > .gitignore
+

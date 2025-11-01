@@ -1,0 +1,32 @@
+.robot-container {
+  width: 100vw;
+  height: 100vh;
+  animation: fadeIn 1.3s ease-out, float 5s ease-in-out infinite;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+/* Fade in effect */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Floating up and down */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
