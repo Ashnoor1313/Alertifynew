@@ -62,7 +62,7 @@ const FeatureSection = () => {
       icon: <Bot className="w-8 h-8 text-emerald-400" />,
       title: "AI Assistant",
       desc: "24/7 Live chatbot for instant scam verification",
-      route: "/assistant",
+      route: "/",
       origin: "y",
     },
     {
