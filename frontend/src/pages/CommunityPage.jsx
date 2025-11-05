@@ -71,7 +71,7 @@ const CommunityPage = () => {
       <div className="md:w-1/3 p-6 flex flex-col justify-center border-r border-green-800">
         <div className="mb-6">
           <h1 className="text-3xl font-bold mb-4 text-green-400 text-center">
-            🤝 Welcome to Sakhi Community
+            🤝 Welcome to Alertify Community
           </h1>
           <p className="text-center text-green-100 text-sm leading-relaxed">
             Real stories. Real awareness. A safer space for all.
@@ -87,7 +87,7 @@ const CommunityPage = () => {
       {/* Right Section */}
       <div className="md:w-2/3 p-12 flex flex-col h-screen overflow-hidden">
         <h2 className="text-2xl font-semibold text-emerald-300 mb-3">
-           💬 Sakhi Community Feed
+           💬 Alertify Community Feed
         </h2>
 
         <div className="flex-1 overflow-y-auto bg-black/10 p-4 rounded-lg shadow-inner">
