@@ -38,7 +38,7 @@ export default function GroundTruthBenefits() {
 
       
         {/* 🌟 Empowerment Pulse Bar */}
-        <div className="overflow-hidden z-10">
+        {/* <div className="overflow-hidden z-10">
           <div className="relative h-20 bg-gradient-to-r from-green-800/60 to-emerald-900/70 backdrop-blur-md border-t border-emerald-400/10 shadow-inner flex items-center justify-center">
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-full h-1 bg-gradient-to-r from-emerald-400 via-green-300 to-lime-400 animate-pulse rounded-full blur-sm opacity-60"></div>
@@ -53,7 +53,7 @@ export default function GroundTruthBenefits() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Heading */}
         <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
