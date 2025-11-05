@@ -133,7 +133,7 @@ const ProfilePage = () => {
           {[
             { icon: Wallet, label: "Wallet", value: `₹${user.wallet || 0}` },
             { icon: Ticket, label: "Coupons", value: user.coupons?.length || 0 },
-            { icon: Star, label: "Sakhi Points", value: user.sakhiPoints || 0 },
+            { icon: Star, label: "Alertify Points", value: user.sakhiPoints || 0 },
           ].map((item, i) => (
             <div
               key={i}
