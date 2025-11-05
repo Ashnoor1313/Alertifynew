@@ -1,3 +1,4 @@
+//communityTweets.jsx
 import React, { useState } from "react";
 
 const initialPosts = [
@@ -56,7 +57,7 @@ const CommunityTweets = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-green-900 to-emerald-900 text-white p-6">
-      <h2 className="text-3xl font-bold text-green-300 mb-4">💬 Sakhi Community</h2>
+      <h2 className="text-3xl font-bold text-green-300 mb-4">💬 Alertify Community</h2>
 
       {/* New Post Box */}
       <div className="bg-black/40 rounded-lg p-4 mb-6">
