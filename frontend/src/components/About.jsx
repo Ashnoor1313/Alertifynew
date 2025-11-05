@@ -1,146 +1,118 @@
+//About.jsx
 import { motion } from "framer-motion";
 import { ShieldCheck, Users, MapPin, HeartHandshake } from "lucide-react";
-// import FloatingShape from "../components/FloatingShape";
-// import SplineAnimation from "../components/SplineAnimation";
 
 const About = () => {
   return (
     <section
       id="about"
-      className="min-h-screen bg-gradient-to-br from-gray-900 via-green-900 to-emerald-900 flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen bg-gradient-to-br from-gray-900 via-green-900 to-emerald-900 flex items-center relative overflow-hidden py-20"
     >
-      {/* Optional Spline 3D Background */}
-      {/* <SplineAnimation /> */}
+      {/* overlay */}
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
 
-      {/* Dark Overlay for Readability */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/20 to-black/70 z-0" />
-
-      {/* Floating Shapes (Optional) */}
-      {/* 
-      <FloatingShape color="bg-green-500" size="w-64 h-64" top="10%" left="5%" delay={0} />
-      <FloatingShape color="bg-emerald-500" size="w-48 h-48" top="60%" left="75%" delay={0.5} />
-      <FloatingShape color="bg-lime-500" size="w-32 h-32" top="30%" left="85%" delay={0.8} /> 
-      */}
-
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
-          {/* Left Column - Placeholder (Spline removed) */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="lg:w-1/2 w-full"
-          />
-
-          {/* Right Column - Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="lg:w-1/2 text-center lg:text-left"
-          >
-            <p className="text-emerald-400 font-bold text-3xl mb-1 tracking-wider">
-              ABOUT Alertify
-            </p>
-
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-5 leading-tight">
-              Empowering <span className="text-emerald-300">Women</span> Through{" "}
-              <span className="text-emerald-300">Technology</span>
-            </h2>
-
-            <p className="text-lg text-gray-300 mb-5">
-              Alertify is a revolutionary safety platform created by women, for
-              women. Our mission is to leverage technology to create safer
-              communities and empower women with tools for personal security and
-              confidence.
-            </p>
-
-            {/* Features Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-5">
-              {[
-                {
-                  icon: <ShieldCheck className="w-6 h-6 text-emerald-400" />,
-                  title: "Safety First",
-                  desc: "24/7 emergency features and real-time alerts",
-                },
-                {
-                  icon: <Users className="w-6 h-6 text-emerald-400" />,
-                  title: "Community",
-                  desc: "Verified network of supportive women",
-                },
-                {
-                  icon: <MapPin className="w-6 h-6 text-emerald-400" />,
-                  title: "Location Tracking",
-                  desc: "Share your location with trusted contacts",
-                },
-                {
-                  icon: <HeartHandshake className="w-6 h-6 text-emerald-400" />,
-                  title: "Support Network",
-                  desc: "Immediate access to help when needed",
-                },
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="bg-gray-800/50 backdrop-blur-sm p-5 rounded-xl border border-gray-700 hover:border-emerald-500 transition-all"
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="bg-emerald-900/50 p-2 rounded-lg">
-                      {item.icon}
-                    </div>
-                    <div className="text-left">
-                      <h4 className="font-bold text-white">{item.title}</h4>
-                      <p className="text-gray-400 text-sm">{item.desc}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Button */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 bg-gradient-to-r from-emerald-500 to-green-600 text-white font-medium rounded-full shadow-lg hover:shadow-emerald-500/30 transition-all"
-            >
-              Learn More About Our Mission
-            </motion.button>
-          </motion.div>
-        </div>
-
-        {/* Stats Section */}
+      <div className="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16">
+        
+        {/* LEFT TEXT AREA */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mt-6 bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700"
+          className="flex flex-col justify-center"
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {[
-              { number: "10K+", label: "Active Users" },
-              { number: "24/7", label: "Support Available" },
-              { number: "100+", label: "Safety Partners" },
-              { number: "5+", label: "Years Protecting Women" },
-            ].map((stat, index) => (
-              <div key={index} className="p-4">
-                <p className="text-3xl font-bold text-emerald-400 mb-2">
-                  {stat.number}
-                </p>
-                <p className="text-gray-400">{stat.label}</p>
+          <p className="text-emerald-400 tracking-widest font-semibold text-xl -mt-40 mb-2">
+            ABOUT ALERTIFY
+          </p>
+
+          <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
+            Empowering with{" "}
+            <span className="text-emerald-300">Smart Safety Tech</span>
+          </h1>
+
+          <p className="text-gray-300 text-lg leading-relaxed mb-8">
+            Alertify builds modern digital safety tools to detect scams, alert loved ones,
+            and create a strong support network — designed for real-world protection.
+          </p>
+
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="w-fit px-8 py-3 bg-gradient-to-r from-emerald-500 to-green-600 text-white font-medium rounded-full shadow-lg hover:shadow-emerald-500/30 transition-all"
+          >
+            Know Our Mission
+          </motion.button>
+        </motion.div>
+
+        {/* RIGHT FEATURES GRID */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-1 -mt-40 sm:grid-cols-2 gap-6"
+        >
+          {[
+           { icon: <ShieldCheck className="w-7 h-7 text-emerald-300" />, 
+  title: "Fraud Shield", 
+  desc: "AI-powered scam and fraud detection" 
+},
+
+{ icon: <Users className="w-7 h-7 text-emerald-300" />, 
+  title: "Verified Network", 
+  desc: "Community-backed reporting & alerts" 
+},
+
+{ icon: <MapPin className="w-7 h-7 text-emerald-300" />, 
+  title: "Live Safety Tracking", 
+  desc: "Share real-time location securely" 
+},
+
+{ icon: <HeartHandshake className="w-7 h-7 text-emerald-300" />, 
+  title: "Rapid Response Hub", 
+  desc: "Quick SOS, emergency call & contacts" 
+}].map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="bg-gray-800/50 border border-emerald-500/20 backdrop-blur-md p-6 rounded-2xl hover:border-emerald-400 shadow-md hover:shadow-emerald-400/20 transition-all"
+            >
+              <div className="flex flex-col gap-4">
+                <div className="bg-emerald-900/40 w-fit p-3 rounded-xl">{item.icon}</div>
+                <h4 className="text-white font-bold text-lg">{item.title}</h4>
+                <p className="text-gray-400 text-sm">{item.desc}</p>
               </div>
-            ))}
-          </div>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
+
+      {/* STATS RIBBON */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="absolute bottom-14 w-[90%] ml-10 mx-auto left-1 transform -translate-x-1/2 bg-gray-800/40 backdrop-blur-lg border border-emerald-400/20 rounded-2xl p-6 shadow-xl"
+      >
+        <div className="grid grid-cols-2 md:grid-cols-4  text-center">
+          {[
+            { num: "10K+", label: "Active Users" },
+            { num: "24/7", label: "Live Support" },
+            { num: "120+", label: "Safety Partners" },
+            { num: "5 Years", label: "Trust & Protection" },
+          ].map((s, i) => (
+            <div key={i} className="py-2">
+              <p className="text-2xl md:text-3xl font-bold text-emerald-300">{s.num}</p>
+              <p className="text-gray-400 text-sm">{s.label}</p>
+            </div>
+          ))}
+        </div>
+      </motion.div>
     </section>
   );
 };
 
 export default About;
-
