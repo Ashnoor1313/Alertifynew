@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@splinetool/react-spline": "^4.1.0",
     "axios": "^1.6.2",
     "emoji-picker-react": "^4.5.2",
     "esbuild": "^0.25.10",
