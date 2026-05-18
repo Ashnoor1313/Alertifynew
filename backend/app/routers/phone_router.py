@@ -21,27 +21,34 @@ class PhoneInput(BaseModel):
     phone_number: str
 
 # ---------------------------
-# Load the trained pipeline
+# Lazy model loader
 # ---------------------------
-model_path = os.path.join(
-    os.path.dirname(__file__), "..", "..", "ml_models", "phone_spam_pipeline.joblib"
-)
+_model = None
 
-try:
-    model = joblib.load(model_path)
-    if not hasattr(model, "predict"):
-        warnings.warn("⚠️ Loaded model may not have predict method!")
-    else:
-        print("✅ Phone model loaded successfully.")
-except Exception as e:
-    print(f"❌ Could not load phone model: {e}")
-    model = None
+def get_model():
+    global _model
+    if _model is None:
+        model_path = os.path.join(
+            os.path.dirname(__file__), "..", "..", "ml_models", "phone_spam_pipeline.joblib"
+        )
+        try:
+            _model = joblib.load(model_path)
+            if not hasattr(_model, "predict"):
+                warnings.warn("⚠️ Loaded model may not have predict method!")
+            else:
+                print("✅ Phone model loaded successfully.")
+        except Exception as e:
+            print(f"❌ Could not load phone model: {e}")
+            _model = None
+    return _model
 
 # ---------------------------
 # Prediction endpoint
 # ---------------------------
 @router.post("/predict")
 def predict_phone(data: PhoneInput):
+    model = get_model()
+
     if model is None:
         return {"error": "Model not loaded. Check server logs."}
 
@@ -61,13 +68,12 @@ def predict_phone(data: PhoneInput):
         # 4️⃣ Get probability/confidence if available
         confidence = None
         if hasattr(model, "predict_proba"):
-            proba = model.predict_proba(df_input)[0]
-        try:
-            class_index = list(model.classes_).index(label)
-            confidence = float(proba[class_index])
-        except Exception:
-            confidence = None
-
+            try:
+                proba = model.predict_proba(df_input)[0]
+                class_index = list(model.classes_).index(label)
+                confidence = float(proba[class_index])
+            except Exception:
+                confidence = None
 
         # 5️⃣ Return structured result
         return {
